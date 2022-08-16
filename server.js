@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const PORT = 4000;
 
+app.set('view engine', 'ejs');
+
 // CONTROLLER
 const productController = require('./controllers/products_controller');
 // console.log(productController);
@@ -10,6 +12,11 @@ const productController = require('./controllers/products_controller');
 app.use('/products', productController);
 
 // -----
+
+app.get('/', (req, res) => {
+    res.render('home.ejs');
+});
+
 
 app.get('/dogs/:name/:breed', (req, res) => {
     res.send(`${req.params.name} is a dog of breed ${req.params.breed}`);

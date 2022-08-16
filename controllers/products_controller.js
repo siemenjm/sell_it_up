@@ -20,7 +20,11 @@ router.get('/:productIndex', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    res.send(products);
+    const context = {
+        products: products
+    };
+
+    res.render('index.ejs', context);
 });
 
 module.exports = router;
