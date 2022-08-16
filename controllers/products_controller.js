@@ -11,12 +11,17 @@ const products = require('../models/product_models');
 
 // routes
 
-router.get('/awesome', (req, res) => {
-    res.send('Products are awesome!');
-});
+// router.get('/awesome', (req, res) => {
+//     res.send('Products are awesome!');
+// });
 
 router.get('/:productIndex', (req, res) => {
-    res.send(products[req.params.productIndex]);
+    // res.send(products[req.params.productIndex]);
+    const context = {
+        product: products[req.params.productIndex]
+    }
+    
+    res.render('show.ejs', context);
 });
 
 router.get('/', (req, res) => {
