@@ -11,20 +11,16 @@ const products = require('../models/product_models');
 
 // routes
 
-router.get('/products/awesome', (req, res) => {
+router.get('/awesome', (req, res) => {
     res.send('Products are awesome!');
 });
 
-router.get('/products/:productIndex', (req, res) => {
+router.get('/:productIndex', (req, res) => {
     res.send(products[req.params.productIndex]);
 });
 
-router.get('/products', (req, res) => {
+router.get('/', (req, res) => {
     res.send(products);
-});
-
-router.get('/', (req,res) => {
-    res.redirect('/products');
 });
 
 module.exports = router;

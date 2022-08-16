@@ -6,7 +6,8 @@ const PORT = 4000;
 const productController = require('./controllers/products_controller');
 // console.log(productController);
 
-app.use(productController);
+// MIDDLEWARE - code that runs before every request before routes
+app.use('/products', productController);
 
 // -----
 
